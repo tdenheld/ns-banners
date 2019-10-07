@@ -1,0 +1,14 @@
+.safe-pay {
+    display: flex;
+    align-items: center;
+    margin-top: $half-gutter;
+    font-size: toRem(14px);
+
+    p {
+        margin-left: 10px;
+    }
+
+    img {
+        width: 26px;
+    }
+}

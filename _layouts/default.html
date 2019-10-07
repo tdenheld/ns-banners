@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="nl-NL">
+
+<head>
+
+    <!-- DISPLAY ALL CHARACTER SYMBOLS -->
+    <meta charset="utf-8" />
+
+    <!-- META DATA -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="noindex">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+
+    <!-- LINKS -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/ns.generic.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+    <script src="/assets/js/modernizr.js"></script>
+
+    <!-- TITLE -->
+    <title>{{ page.title }} | NS</title>
+
+</head>
+
+<body>
+
+    {% include header.html %}
+    <main class="content {{ page.bg }}">
+        {{ content }}
+    </main>
+    {% include footer.html %}
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/ns.generic.min.js"></script>
+    <script src="/assets/js/ns.plugins.bundle.min.js"></script>
+    <script src="/assets/js/generic.js"></script>
+    <script src="/assets/js/adn.js"></script>
+
+    {% if page.rp %}
+    <script>
+        //<![CDATA[
+
+        window.planbarConfiguration = {
+            staticFilePath: '/assets/js/rp/',
+            journeyPlannerPath: '/reisplanner'
+        }
+
+        //]]>
+    </script>
+    <script src="/assets/js/rp/runtime.js"></script>
+    <script src="/assets/js/rp/polyfills.js"></script>
+    <script src="/assets/js/rp/main.js"></script>
+    <script src="/assets/js/rp/gssp.js"></script>
+    {% endif %}
+
+</body>
+
+</html>

@@ -1,0 +1,602 @@
+/*-------------------
+       Buttons
+--------------------*/
+
+.button {
+    position: relative;
+    transition: $fade-link;
+    border: 1px solid transparent;
+    border-bottom: 1px solid $ns-light-blue-2;
+    background-color: $ns-light-blue;
+    color: $ns-white;
+    box-shadow: inset 0 -1px 0 $ns-light-blue-2;
+
+    &:hover {
+        box-shadow: inset 0 (-$button-height) 0 $ns-light-blue-2;
+        border-color: $ns-light-blue-2;
+        color: $ns-white;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $ns-blue;
+        box-shadow: inset 0 -1px 0 $ns-light-blue-2,
+            0 0 0 1px $ns-blue,
+            $box-shadow-soft;
+        color: $ns-white;
+    }
+
+    &:hover:focus {
+        box-shadow: inset 0 (-$button-height) 0 $ns-light-blue-2,
+            0 0 0 1px $ns-blue,
+            $box-shadow-soft;
+    }
+
+    &:disabled {
+        border-color: transparent;
+        border-bottom-color: $ns-grey-7;
+        box-shadow: inset 0 -1px 0 $ns-grey-7;
+        color: $ns-grey-5;
+    }
+
+    &:hover:disabled {
+        box-shadow: inset 0 -1px 0 $ns-grey-7;
+        color: $ns-grey-5;
+    }
+
+    &:before {
+        transition: $fade-link;
+        background-image: url("data:image/svg+xml;charset%3DUS-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%2235px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2035%2035%22%20enable-background%3D%22new%200%200%2035%2035%22%20xml%3Aspace%3D%22preserve%22%3E%3Ccircle%20cx%3D%2222.006%22%20cy%3D%2226.749%22%20r%3D%221.25%22%2F%3E%3Ccircle%20cx%3D%2213%22%20cy%3D%2226.749%22%20r%3D%221.25%22%2F%3E%3Cpath%20d%3D%22M26.389%2C13.185C26.294%2C13.068%2C26.151%2C13%2C26%2C13H12c-0.276%2C0-0.5%2C0.224-0.5%2C0.5S11.724%2C14%2C12%2C14h13.381l-1.286%2C6H10.923%20L8.827%2C7.418C8.787%2C7.176%2C8.578%2C7%2C8.333%2C7H5C4.724%2C7%2C4.5%2C7.223%2C4.5%2C7.5S4.724%2C8%2C5%2C8h2.91l2.097%2C12.582v0v0l0.5%2C3%20C10.547%2C23.823%2C10.755%2C24%2C11%2C24h13c0.276%2C0%2C0.5-0.224%2C0.5-0.5S24.276%2C23%2C24%2C23H11.423l-0.333-2H24.5%20c0.236%2C0%2C0.439-0.165%2C0.489-0.395l1.5-7C26.521%2C13.456%2C26.484%2C13.303%2C26.389%2C13.185z%22%2F%3E%3Cstyle%20type%3D%22text%2Fcss%22%3Ecircle%2C%20ellipse%2C%20line%2C%20path%2C%20polygon%2C%20polyline%2C%20rect%2C%20text%20%7B%20fill%3A%20%23fff%3B%20%7D%3C%2Fstyle%3E%3C%2Fsvg%3E");
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 19px;
+        height: 19px;
+        top: 12px;
+        left: calc(50% - 9px);
+        opacity: 0;
+        transition: $fade-link;
+        animation: rotate $loader-speed linear infinite;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 19 19'%3E%3Cpath fill='%23fff' d='M1.132,8A8.5,8.5,0,0,1,17.868,8h1.014A9.5,9.5,0,0,0,.118,8Z'/%3E%3Cpath fill='%23fff' d='M17.868,11A8.5,8.5,0,0,1,1.132,11H.118a9.5,9.5,0,0,0,18.764,0Z'/%3E%3C/svg%3E");
+    }
+
+    svg {
+        transition: $fade-link;
+        fill: $ns-white;
+    }
+
+    &.is-loading {
+        color: transparent;
+
+        &:before {
+            opacity: 0;
+        }
+
+        &:after {
+            opacity: 1;
+        }
+
+        &:hover,
+        &:focus {
+            color: transparent;
+            border-color: transparent;
+            border-bottom-color: $ns-light-blue-2;
+            box-shadow: inset 0 -1px 0 $ns-light-blue-2;
+        }
+    }
+}
+
+
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+.button--secondary {
+    background-color: transparent;
+    border-color: $ns-light-blue;
+    box-shadow: none;
+    color: $ns-light-blue;
+
+    &:hover {
+        box-shadow: none;
+        border-color: $ns-blue;
+        color: $ns-blue;
+
+        &:before {
+            background-image: url("data:image/svg+xml;charset%3DUS-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%2235px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2035%2035%22%20enable-background%3D%22new%200%200%2035%2035%22%20xml%3Aspace%3D%22preserve%22%3E%3Ccircle%20cx%3D%2222.006%22%20cy%3D%2226.749%22%20r%3D%221.25%22%2F%3E%3Ccircle%20cx%3D%2213%22%20cy%3D%2226.749%22%20r%3D%221.25%22%2F%3E%3Cpath%20d%3D%22M26.389%2C13.185C26.294%2C13.068%2C26.151%2C13%2C26%2C13H12c-0.276%2C0-0.5%2C0.224-0.5%2C0.5S11.724%2C14%2C12%2C14h13.381l-1.286%2C6H10.923%20L8.827%2C7.418C8.787%2C7.176%2C8.578%2C7%2C8.333%2C7H5C4.724%2C7%2C4.5%2C7.223%2C4.5%2C7.5S4.724%2C8%2C5%2C8h2.91l2.097%2C12.582v0v0l0.5%2C3%20C10.547%2C23.823%2C10.755%2C24%2C11%2C24h13c0.276%2C0%2C0.5-0.224%2C0.5-0.5S24.276%2C23%2C24%2C23H11.423l-0.333-2H24.5%20c0.236%2C0%2C0.439-0.165%2C0.489-0.395l1.5-7C26.521%2C13.456%2C26.484%2C13.303%2C26.389%2C13.185z%22%2F%3E%3Cstyle%20type%3D%22text%2Fcss%22%3Ecircle%2C%20ellipse%2C%20line%2C%20path%2C%20polygon%2C%20polyline%2C%20rect%2C%20text%20%7B%20fill%3A%20%23003082%3B%20%7D%3C%2Fstyle%3E%3C%2Fsvg%3E");
+        }
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 1px $ns-light-blue, $box-shadow-soft;
+        border-color: $ns-light-blue;
+        color: $ns-light-blue;
+    }
+
+    &:hover:focus {
+        box-shadow: 0 0 0 1px $ns-blue,
+            $box-shadow-soft;
+        border-color: $ns-blue;
+        color: $ns-blue;
+    }
+
+    &:disabled {
+        border-color: $ns-grey-6b;
+        box-shadow: none;
+        background: none;
+    }
+
+    &:hover:disabled {
+        box-shadow: none;
+    }
+
+    &:before {
+        background-image: url("data:image/svg+xml;charset%3DUS-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%2235px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2035%2035%22%20enable-background%3D%22new%200%200%2035%2035%22%20xml%3Aspace%3D%22preserve%22%3E%3Ccircle%20cx%3D%2222.006%22%20cy%3D%2226.749%22%20r%3D%221.25%22%2F%3E%3Ccircle%20cx%3D%2213%22%20cy%3D%2226.749%22%20r%3D%221.25%22%2F%3E%3Cpath%20d%3D%22M26.389%2C13.185C26.294%2C13.068%2C26.151%2C13%2C26%2C13H12c-0.276%2C0-0.5%2C0.224-0.5%2C0.5S11.724%2C14%2C12%2C14h13.381l-1.286%2C6H10.923%20L8.827%2C7.418C8.787%2C7.176%2C8.578%2C7%2C8.333%2C7H5C4.724%2C7%2C4.5%2C7.223%2C4.5%2C7.5S4.724%2C8%2C5%2C8h2.91l2.097%2C12.582v0v0l0.5%2C3%20C10.547%2C23.823%2C10.755%2C24%2C11%2C24h13c0.276%2C0%2C0.5-0.224%2C0.5-0.5S24.276%2C23%2C24%2C23H11.423l-0.333-2H24.5%20c0.236%2C0%2C0.439-0.165%2C0.489-0.395l1.5-7C26.521%2C13.456%2C26.484%2C13.303%2C26.389%2C13.185z%22%2F%3E%3Cstyle%20type%3D%22text%2Fcss%22%3Ecircle%2C%20ellipse%2C%20line%2C%20path%2C%20polygon%2C%20polyline%2C%20rect%2C%20text%20%7B%20fill%3A%20%230063d3%3B%20%7D%3C%2Fstyle%3E%3C%2Fsvg%3E");
+    }
+
+    &:after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 19 19'%3E%3Cpath fill='%230063d3' d='M1.132,8A8.5,8.5,0,0,1,17.868,8h1.014A9.5,9.5,0,0,0,.118,8Z'/%3E%3Cpath fill='%230063d3' d='M17.868,11A8.5,8.5,0,0,1,1.132,11H.118a9.5,9.5,0,0,0,18.764,0Z'/%3E%3C/svg%3E");
+    }
+
+    svg {
+        fill: $ns-light-blue;
+    }
+
+    &:hover,
+    &:hover:focus {
+        svg {
+            fill: $ns-blue;
+        }
+    }
+
+    &.is-loading {
+
+        &:hover,
+        &:focus {
+            color: transparent;
+            box-shadow: none;
+            border-color: $ns-light-blue;
+        }
+    }
+}
+
+
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+.button--tertiary {
+    padding-left: 0;
+    padding-right: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    border-color: transparent;
+    color: $ns-light-blue;
+    min-width: auto;
+
+    &:hover {
+        border-color: transparent;
+        box-shadow: none;
+        color: $ns-blue;
+    }
+
+    &:after {
+        background: none;
+        opacity: 0;
+        animation: none;
+        width: calc(100% + 14px);
+        top: 0;
+        left: -7px;
+        height: 100%;
+        border-radius: $border-radius;
+        box-shadow: 0 0 0 1px $ns-light-blue, $box-shadow-soft;
+        border: 1px solid $ns-light-blue;
+    }
+
+    &:focus {
+        border-color: transparent;
+        box-shadow: none;
+        color: $ns-light-blue;
+
+        &:after {
+            opacity: 1;
+        }
+    }
+
+    &:hover:focus {
+        border-color: transparent;
+        box-shadow: none;
+        color: $ns-blue;
+
+        &:after {
+            box-shadow: 0 0 0 1px $ns-blue, $box-shadow-soft;
+            border: 1px solid $ns-blue;
+        }
+    }
+
+    &:disabled {
+        border: none;
+        box-shadow: none;
+        background: none;
+    }
+
+    &:hover:disabled {
+        box-shadow: none;
+    }
+}
+
+
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+.button--buy {
+    &:before {
+        left: auto;
+        margin-left: toRem(-35px);
+    }
+
+    &:disabled:before {
+        background-image: url("data:image/svg+xml;charset%3DUS-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%2235px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2035%2035%22%20enable-background%3D%22new%200%200%2035%2035%22%20xml%3Aspace%3D%22preserve%22%3E%3Ccircle%20cx%3D%2222.006%22%20cy%3D%2226.749%22%20r%3D%221.25%22%2F%3E%3Ccircle%20cx%3D%2213%22%20cy%3D%2226.749%22%20r%3D%221.25%22%2F%3E%3Cpath%20d%3D%22M26.389%2C13.185C26.294%2C13.068%2C26.151%2C13%2C26%2C13H12c-0.276%2C0-0.5%2C0.224-0.5%2C0.5S11.724%2C14%2C12%2C14h13.381l-1.286%2C6H10.923%20L8.827%2C7.418C8.787%2C7.176%2C8.578%2C7%2C8.333%2C7H5C4.724%2C7%2C4.5%2C7.223%2C4.5%2C7.5S4.724%2C8%2C5%2C8h2.91l2.097%2C12.582v0v0l0.5%2C3%20C10.547%2C23.823%2C10.755%2C24%2C11%2C24h13c0.276%2C0%2C0.5-0.224%2C0.5-0.5S24.276%2C23%2C24%2C23H11.423l-0.333-2H24.5%20c0.236%2C0%2C0.439-0.165%2C0.489-0.395l1.5-7C26.521%2C13.456%2C26.484%2C13.303%2C26.389%2C13.185z%22%2F%3E%3Cstyle%20type%3D%22text%2Fcss%22%3Ecircle%2C%20ellipse%2C%20line%2C%20path%2C%20polygon%2C%20polyline%2C%20rect%2C%20text%20%7B%20fill%3A%20%239c9ca6%3B%20%7D%3C%2Fstyle%3E%3C%2Fsvg%3E");
+    }
+}
+
+
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+.button--brand {
+    background-color: $ns-yellow;
+    border-bottom-color: $ns-yellow-2;
+    box-shadow: inset 0 -1px 0 $ns-yellow-2;
+    color: $ns-blue;
+
+    &:hover {
+        border-color: $ns-yellow-2;
+        box-shadow: inset 0 (-$button-height) 0 $ns-yellow-2;
+        color: $ns-blue;
+    }
+
+    &:focus {
+        box-shadow: inset 0 -1px 0 $ns-yellow-2,
+            0 0 0 1px $ns-light-blue,
+            $box-shadow-soft;
+        border-color: $ns-light-blue;
+        color: $ns-blue;
+    }
+
+    &:hover:focus {
+        box-shadow: inset 0 (-$button-height) 0 $ns-yellow-2,
+            0 0 0 1px $ns-blue,
+            $box-shadow-soft;
+        border-color: $ns-blue;
+    }
+
+    &:disabled {
+        border-color: transparent;
+        border-bottom-color: $ns-grey-7;
+    }
+
+    &:before {
+        background-image: url("data:image/svg+xml;charset%3DUS-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%2235px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2035%2035%22%20enable-background%3D%22new%200%200%2035%2035%22%20xml%3Aspace%3D%22preserve%22%3E%3Ccircle%20cx%3D%2222.006%22%20cy%3D%2226.749%22%20r%3D%221.25%22%2F%3E%3Ccircle%20cx%3D%2213%22%20cy%3D%2226.749%22%20r%3D%221.25%22%2F%3E%3Cpath%20d%3D%22M26.389%2C13.185C26.294%2C13.068%2C26.151%2C13%2C26%2C13H12c-0.276%2C0-0.5%2C0.224-0.5%2C0.5S11.724%2C14%2C12%2C14h13.381l-1.286%2C6H10.923%20L8.827%2C7.418C8.787%2C7.176%2C8.578%2C7%2C8.333%2C7H5C4.724%2C7%2C4.5%2C7.223%2C4.5%2C7.5S4.724%2C8%2C5%2C8h2.91l2.097%2C12.582v0v0l0.5%2C3%20C10.547%2C23.823%2C10.755%2C24%2C11%2C24h13c0.276%2C0%2C0.5-0.224%2C0.5-0.5S24.276%2C23%2C24%2C23H11.423l-0.333-2H24.5%20c0.236%2C0%2C0.439-0.165%2C0.489-0.395l1.5-7C26.521%2C13.456%2C26.484%2C13.303%2C26.389%2C13.185z%22%2F%3E%3Cstyle%20type%3D%22text%2Fcss%22%3Ecircle%2C%20ellipse%2C%20line%2C%20path%2C%20polygon%2C%20polyline%2C%20rect%2C%20text%20%7B%20fill%3A%20%23003082%3B%20%7D%3C%2Fstyle%3E%3C%2Fsvg%3E");
+    }
+
+    &:after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 19 19'%3E%3Cpath fill='%23003082' d='M1.132,8A8.5,8.5,0,0,1,17.868,8h1.014A9.5,9.5,0,0,0,.118,8Z'/%3E%3Cpath fill='%23003082' d='M17.868,11A8.5,8.5,0,0,1,1.132,11H.118a9.5,9.5,0,0,0,18.764,0Z'/%3E%3C/svg%3E");
+    }
+
+    svg {
+        fill: $ns-blue;
+    }
+
+    &.is-loading {
+        color: transparent;
+
+        &:hover,
+        &:focus {
+            border-color: transparent;
+            border-bottom-color: $ns-yellow-2;
+            box-shadow: inset 0 -1px 0 $ns-yellow-2;
+        }
+    }
+}
+
+
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+.button--arrow {
+    padding: toRem(10px) toRem(7px) toRem(10px) toRem(18px);
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+
+    &:before {
+        content: '';
+        position: relative;
+        top: -6px;
+        width: 35px;
+        height: 35px;
+        margin-left: -2px;
+        background-position: center;
+        background-size: contain;
+        background-image: url("data:image/svg+xml;charset%3DUS-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%2235px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2035%2035%22%20enable-background%3D%22new%200%200%2035%2035%22%20xml%3Aspace%3D%22preserve%22%3E%3Cg%3E%20%3Cpolygon%20points%3D%2220.2%2C17.5%2014.7%2C23%2016.3%2C23%2021.8%2C17.5%2016.3%2C12%2014.7%2C12%20%20%22%2F%3E%3C%2Fg%3E%3Cstyle%20type%3D%22text%2Fcss%22%3Ecircle%2C%20ellipse%2C%20line%2C%20path%2C%20polygon%2C%20polyline%2C%20rect%2C%20text%20%7B%20fill%3A%20%23003082%3B%20%7D%3C%2Fstyle%3E%3C%2Fsvg%3E");
+    }
+
+    &:disabled {
+        padding: toRem(10px) toRem(7px) toRem(10px) toRem(18px) !important;
+
+        &:before {
+            background-image: url("data:image/svg+xml;charset%3DUS-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%2235px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2035%2035%22%20enable-background%3D%22new%200%200%2035%2035%22%20xml%3Aspace%3D%22preserve%22%3E%3Cg%3E%20%3Cpolygon%20points%3D%2220.2%2C17.5%2014.7%2C23%2016.3%2C23%2021.8%2C17.5%2016.3%2C12%2014.7%2C12%20%20%22%2F%3E%3C%2Fg%3E%3Cstyle%20type%3D%22text%2Fcss%22%3Ecircle%2C%20ellipse%2C%20line%2C%20path%2C%20polygon%2C%20polyline%2C%20rect%2C%20text%20%7B%20fill%3A%20%239c9ca6%3B%20%7D%3C%2Fstyle%3E%3C%2Fsvg%3E");
+        }
+    }
+}
+
+
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+.button--subtle {
+    padding-left: 0;
+    padding-right: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: inset 0 -2px 0 $ns-grey-alpha-15;
+    border-color: transparent;
+    color: $ns-blue;
+    min-width: auto;
+
+    &:hover {
+        border-color: transparent;
+        box-shadow: inset 0 -2px 0 $ns-grey-alpha-30;
+        color: $ns-blue;
+    }
+
+    &:after {
+        background: none;
+        opacity: 0;
+        animation: none;
+        width: calc(100% + 14px);
+        top: 7px;
+        left: -7px;
+        height: 29px;
+        border-radius: $border-radius;
+        box-shadow: 0 0 0 1px $ns-light-blue, $box-shadow-soft;
+        border: 1px solid $ns-light-blue;
+    }
+
+    &:focus {
+        border-color: transparent;
+        box-shadow: inset 0 -2px 0 $ns-grey-alpha-15;
+        color: $ns-blue;
+
+        &:after {
+            opacity: 1;
+        }
+    }
+
+    &:hover:focus {
+        border-color: transparent;
+        box-shadow: inset 0 -2px 0 $ns-grey-alpha-30;
+        color: $ns-blue;
+
+        &:after {
+            box-shadow: 0 0 0 1px $ns-blue, $box-shadow-soft;
+            border: 1px solid $ns-blue;
+        }
+    }
+
+    &:disabled {
+        border: none;
+        box-shadow: none;
+        background: none;
+    }
+
+    &:hover:disabled {
+        box-shadow: none;
+    }
+
+    svg {
+        fill: $ns-blue;
+    }
+}
+
+
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+.button--floating {
+    border-color: transparent;
+    background-color: $ns-white;
+    box-shadow: $box-shadow-soft;
+    color: $ns-light-blue;
+
+    &:hover {
+        border-color: transparent;
+        background-color: $ns-light-blue;
+        box-shadow: $box-shadow-soft;
+
+        &:before {
+            background-image: url("data:image/svg+xml;charset%3DUS-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%2235px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2035%2035%22%20enable-background%3D%22new%200%200%2035%2035%22%20xml%3Aspace%3D%22preserve%22%3E%3Ccircle%20cx%3D%2222.006%22%20cy%3D%2226.749%22%20r%3D%221.25%22%2F%3E%3Ccircle%20cx%3D%2213%22%20cy%3D%2226.749%22%20r%3D%221.25%22%2F%3E%3Cpath%20d%3D%22M26.389%2C13.185C26.294%2C13.068%2C26.151%2C13%2C26%2C13H12c-0.276%2C0-0.5%2C0.224-0.5%2C0.5S11.724%2C14%2C12%2C14h13.381l-1.286%2C6H10.923%20L8.827%2C7.418C8.787%2C7.176%2C8.578%2C7%2C8.333%2C7H5C4.724%2C7%2C4.5%2C7.223%2C4.5%2C7.5S4.724%2C8%2C5%2C8h2.91l2.097%2C12.582v0v0l0.5%2C3%20C10.547%2C23.823%2C10.755%2C24%2C11%2C24h13c0.276%2C0%2C0.5-0.224%2C0.5-0.5S24.276%2C23%2C24%2C23H11.423l-0.333-2H24.5%20c0.236%2C0%2C0.439-0.165%2C0.489-0.395l1.5-7C26.521%2C13.456%2C26.484%2C13.303%2C26.389%2C13.185z%22%2F%3E%3Cstyle%20type%3D%22text%2Fcss%22%3Ecircle%2C%20ellipse%2C%20line%2C%20path%2C%20polygon%2C%20polyline%2C%20rect%2C%20text%20%7B%20fill%3A%20%23fff%3B%20%7D%3C%2Fstyle%3E%3C%2Fsvg%3E");
+        }
+    }
+
+    &:focus {
+        border-color: $ns-light-blue;
+        background-color: $ns-white;
+        box-shadow: 0 0 0 1px $ns-light-blue, $box-shadow-soft;
+        color: $ns-light-blue;
+    }
+
+    &:hover:focus {
+        border-color: $ns-blue;
+        background-color: $ns-light-blue;
+        box-shadow: 0 0 0 1px $ns-blue,
+            $box-shadow-soft;
+        color: $ns-white;
+    }
+
+    &:before {
+        background-image: url("data:image/svg+xml;charset%3DUS-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%2235px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2035%2035%22%20enable-background%3D%22new%200%200%2035%2035%22%20xml%3Aspace%3D%22preserve%22%3E%3Ccircle%20cx%3D%2222.006%22%20cy%3D%2226.749%22%20r%3D%221.25%22%2F%3E%3Ccircle%20cx%3D%2213%22%20cy%3D%2226.749%22%20r%3D%221.25%22%2F%3E%3Cpath%20d%3D%22M26.389%2C13.185C26.294%2C13.068%2C26.151%2C13%2C26%2C13H12c-0.276%2C0-0.5%2C0.224-0.5%2C0.5S11.724%2C14%2C12%2C14h13.381l-1.286%2C6H10.923%20L8.827%2C7.418C8.787%2C7.176%2C8.578%2C7%2C8.333%2C7H5C4.724%2C7%2C4.5%2C7.223%2C4.5%2C7.5S4.724%2C8%2C5%2C8h2.91l2.097%2C12.582v0v0l0.5%2C3%20C10.547%2C23.823%2C10.755%2C24%2C11%2C24h13c0.276%2C0%2C0.5-0.224%2C0.5-0.5S24.276%2C23%2C24%2C23H11.423l-0.333-2H24.5%20c0.236%2C0%2C0.439-0.165%2C0.489-0.395l1.5-7C26.521%2C13.456%2C26.484%2C13.303%2C26.389%2C13.185z%22%2F%3E%3Cstyle%20type%3D%22text%2Fcss%22%3Ecircle%2C%20ellipse%2C%20line%2C%20path%2C%20polygon%2C%20polyline%2C%20rect%2C%20text%20%7B%20fill%3A%20%230063d3%3B%20%7D%3C%2Fstyle%3E%3C%2Fsvg%3E");
+    }
+
+    &:after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 19 19'%3E%3Cpath fill='%230063d3' d='M1.132,8A8.5,8.5,0,0,1,17.868,8h1.014A9.5,9.5,0,0,0,.118,8Z'/%3E%3Cpath fill='%230063d3' d='M17.868,11A8.5,8.5,0,0,1,1.132,11H.118a9.5,9.5,0,0,0,18.764,0Z'/%3E%3C/svg%3E");
+    }
+
+    svg {
+        fill: $ns-light-blue;
+    }
+
+    &:hover,
+    &:hover:focus {
+        svg {
+            fill: $ns-blue;
+        }
+    }
+
+    &.is-loading {
+        &:hover {
+            background-color: $ns-white;
+            border-color: transparent;
+            box-shadow: $box-shadow-soft;
+        }
+
+        &:focus,
+        &:hover:focus {
+            color: transparent;
+            border-color: transparent;
+            box-shadow: $box-shadow-soft;
+        }
+    }
+}
+
+
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+.button--icon {
+    @include center(inline-flex);
+    width: 45px;
+    height: 45px;
+    min-width: auto;
+
+    &:after {
+        content: none;
+    }
+}
+
+
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+.button-glued {
+    display: inline-flex;
+
+    .button {
+        position: relative;
+        margin-left: -1px;
+        border-radius: 0;
+
+        &:first-of-type {
+            margin-left: 0;
+            border-radius: 4px 0 0 4px;
+        }
+
+        &:not(:first-child):not(:hover):not(:focus) {
+            border-left-color: transparent;
+        }
+
+        &:last-of-type {
+            border-radius: 0 4px 4px 0;
+        }
+
+        &:hover,
+        &:focus {
+            z-index: 2;
+        }
+    }
+}
+
+
+// contrasts
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+.button--contrast {
+    border-bottom: 1px solid $ns-grey-8;
+    background-color: $ns-white;
+    color: $ns-light-blue;
+    box-shadow: inset 0 -1px 0 $ns-grey-8;
+
+    &:hover {
+        box-shadow: inset 0 (-$button-height) 0 $ns-grey-8;
+        border-color: $ns-grey-8;
+        color: $ns-light-blue;
+    }
+
+    &:focus {
+        border-color: $ns-light-blue;
+        box-shadow: inset 0 -1px 0 $ns-grey-8,
+            0 0 0 1px $ns-light-blue,
+            $box-shadow-soft-contrast;
+        color: $ns-light-blue;
+    }
+
+    &:hover:focus {
+        border-color: $ns-light-blue;
+        box-shadow: inset 0 (-$button-height) 0 $ns-grey-8,
+            0 0 0 1px $ns-light-blue,
+            $box-shadow-soft-contrast;
+    }
+
+    svg {
+        fill: $ns-light-blue;
+    }
+}
+
+.button--secondary.button--contrast {
+    background-color: transparent;
+    border-color: rgba($ns-white, 0.5);
+    box-shadow: none;
+    color: $ns-white;
+
+    &:hover {
+        box-shadow: none;
+        border-color: $ns-white;
+        color: $ns-white;
+    }
+
+    &:focus,
+    &:hover:focus {
+        border-color: $ns-white;
+        box-shadow: 0 0 0 1px $ns-white, $box-shadow-soft-contrast;
+
+        svg {
+            fill: $ns-white;
+        }
+    }
+
+    svg {
+        fill: $ns-white;
+    }
+}
+
+.button--contrastYellow {
+    background-color: transparent;
+    border-color: $ns-grey-alpha-20;
+    box-shadow: none;
+    color: $ns-blue;
+
+    &:hover {
+        box-shadow: none;
+        border-color: $ns-blue;
+        color: $ns-blue;
+    }
+
+    &:focus {
+        color: $ns-blue;
+        border-color: $ns-light-blue;
+        box-shadow: 0 0 0 1px $ns-light-blue, $box-shadow-soft;
+    }
+
+    &:hover:focus {
+        color: $ns-blue;
+        border-color: $ns-blue;
+        box-shadow: 0 0 0 1px $ns-blue, $box-shadow-soft;
+    }
+
+    svg {
+        fill: $ns-blue;
+    }
+}

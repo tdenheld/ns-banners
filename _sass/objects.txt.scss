@@ -1,0 +1,133 @@
+.h-xxxl,
+.h-xxl,
+.h-xl,
+.h-l,
+.h-m,
+.h-s,
+.h-xs,
+.h-xxs,
+.h-xxxs,
+.h-xxxxs {
+    color: $ns-blue;
+    letter-spacing: $ls-heading;
+}
+
+.h-xxxl {
+    @include font(38px, bold, $lh-title);
+
+    @include xs {
+        font-size: toRem(48px);
+    }
+
+    @include sm {
+        font-size: toRem(60px);
+    }
+
+    @include md {
+        font-size: toRem(80px);
+    }
+}
+
+.h-xxl {
+    @include font(38px, bold, $lh-title);
+
+    @include sm {
+        font-size: toRem(56px);
+    }
+
+    @include md {
+        font-size: toRem(72px);
+    }
+}
+
+.h-xl {
+    @include font(38px, bold, $lh-title);
+
+    @include sm {
+        font-size: toRem(48px);
+    }
+
+    @include md {
+        font-size: toRem(60px);
+    }
+}
+
+.h-l {
+    @include font(36px, bold, $lh-title);
+
+    @include sm {
+        font-size: toRem(48px);
+    }
+}
+
+.h-m {
+    @include font(32px, bold, $lh-title);
+
+    @include sm {
+        font-size: toRem(40px);
+    }
+}
+
+.h-s {
+    @include font(28px, bold, $lh-title);
+
+    @include sm {
+        font-size: toRem(36px);
+    }
+}
+
+.h-xs {
+    @include font(24px, bold, $lh-title);
+
+    @include sm {
+        font-size: toRem(32px);
+    }
+}
+
+.h-xxs {
+    @include font(20px, bold, $lh-title);
+
+    @include sm {
+        font-size: toRem(28px);
+    }
+}
+
+.h-xxxs {
+    @include font(20px, bold, $lh-title);
+
+    @include sm {
+        font-size: toRem(24px);
+    }
+}
+
+.h-xxxxs {
+    @include font(18px, bold, $lh-title);
+
+    @include sm {
+        font-size: toRem(20px);
+    }
+}
+
+.h--normal {
+    font-weight: normal;
+    letter-spacing: 0;
+}
+
+
+// body
+// --------------------------------------------
+.txt-body {
+    @include font(18px, normal, $lh-copy);
+}
+
+.txt-default {
+    @include font(16px, normal, $lh-copy);
+}
+
+.txt-small {
+    @include font(14px, normal, $lh-copy);
+}
+
+.txt-tiny {
+    @include font(12px, normal, $lh-copy);
+}
