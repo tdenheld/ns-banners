@@ -1,17 +1,10 @@
 .iab {
-    border: 1px solid $ns-grey-alpha-15;
-    color: $ns-grey-3;
-    font-size: toRem(12px);
-    padding: 7px $half-gutter 24px;
-
-    @media (max-width: 360px) {
-        padding: 7px 0 0;
-    }
-}
-
-.iab__container {
     position: relative;
     @include center(flex);
+}
+
+.iab__img {
+    border: 1px solid $ns-white;
 }
 
 .iab__billboard {
