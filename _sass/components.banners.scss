@@ -2,9 +2,10 @@
     border: 1px solid $ns-grey-alpha-15;
     color: $ns-grey-3;
     font-size: toRem(12px);
+    padding: 7px $half-gutter 24px;
 
-    @include md {
-        padding: 7px $half-gutter $gutter;
+    @media (max-width: 360px) {
+        padding: 7px 0 0;
     }
 }
 
@@ -14,9 +15,14 @@
 }
 
 .iab__billboard {
+    display: none;
     position: relative;
     width: 970px;
     height: 250px;
+
+    @media (min-width: 970px + $gutter) {
+        display: block;
+    }
 }
 
 .iab__medium-rectangle {
@@ -26,21 +32,24 @@
 }
 
 .iab__leaderboard {
+    display: none;
     position: relative;
     width: 728px;
     height: 90px;
+
+    @media (min-width: 728px + $gutter) and (max-width: 970px + $gutter) {
+        display: block;
+    }
 }
 
 .iab__mobile {
     position: relative;
     width: 320px;
     height: 50px;
-}
 
-.iab__skyscraper {
-    position: relative;
-    width: 120px;
-    height: 600px;
+    @media (min-width: 728px + $gutter) {
+        display: none;
+    }
 }
 
 .iab__wide-skyscraper {
