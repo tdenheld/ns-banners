@@ -92,4 +92,6 @@ function init() {
     loop();
 }
 
-init();
+window.addEventListener('load', () => {
+    init();
+});
