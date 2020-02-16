@@ -88,8 +88,6 @@ function init() {
     ctxMap.drawImage(mapImg, 0, 0);
     mapData = ctxMap.getImageData(0, 0, cw, ch).data;
 
-    console.log('Source and map data cached');
-
     // Kick off the update-render loop
     loop();
 }
