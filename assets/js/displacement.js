@@ -1,5 +1,5 @@
 // Maximum distance for xy displacement offset
-var DRIFT_RANGE = 10;
+var DRIFT_RANGE = 20;
 
 // Create/cache canvases and contexts for source image, 
 // displacement map, and output
@@ -26,7 +26,7 @@ function update() {
     // Calculate the xy drift based on the current time.
     // y drift is half-speed
     // TODO: make interactive (mouse, gyro, etc)
-    var t = 0.002 * Date.now(),
+    var t = 0.007 * Date.now(),
         dx = Math.sin(t) * DRIFT_RANGE,
         dy = Math.cos(t * 0.5) * DRIFT_RANGE;
 
